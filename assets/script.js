@@ -23,7 +23,7 @@ function generatePassword() {
   //}
   //getRandomPassword();
 
-  if ((userLowerCase === true) && (userUpperCase === true) && (userNumbers === true) && (userSpecialCharacters === true)) {
+/*   if ((userLowerCase === true) && (userUpperCase === true) && (userNumbers === true) && (userSpecialCharacters === true)) {
     var n = userLength;
     const allMerged = [...lowerCase, ...upperCase, ...numbers, ...specialCharacters];
     const shuffled = allMerged.sort(function() {return 0.5 - Math.random(); });
@@ -47,7 +47,34 @@ function generatePassword() {
     var selected = shuffled.slice(0,n);
     var result = selected.join("");
     return result;
-  }
+  } */
+
+  var mergedArray = [0];
+  if (userLowerCase === true) {
+    var mergedArraystep1 = [].concat(lowerCase);
+  } else if (userLowerCase === false) {
+    mergedArraystep1 = [];
+  };
+  if (userUpperCase === true) {
+    var mergedArraystep2 = mergedArraystep1.concat(upperCase);
+  } else if (userUpperCase === false) {
+    mergedArraystep2 = mergedArraystep1;
+  };
+  if (userNumbers === true) {
+    var mergedArraystep3 = mergedArraystep2.concat(numbers);
+  } else if (userNumbers === false) {
+    var mergedArraystep3 = mergedArraystep2;
+  };
+  if (userSpecialCharacters === true) {
+    var mergedArraystep4 = mergedArraystep3.concat(specialCharacters);
+  } else if (userSpecialCharacters === false) {
+    var mergedArraystep4 = mergedArraystep3;
+  };
+  var n = userLength;
+  const shuffled = mergedArraystep4.sort(function() {return 0.5 - Math.random(); });
+  var selected = shuffled.slice(0,n);
+  var result = selected.join("");
+  return result;
 }
 
 // Get references to the #generate element
