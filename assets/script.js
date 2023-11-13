@@ -49,7 +49,6 @@ function generatePassword() {
     return result;
   } */
 
-  var mergedArray = [0];
   if (userLowerCase === true) {
     var mergedArraystep1 = [].concat(lowerCase);
   } else if (userLowerCase === false) {
@@ -74,7 +73,13 @@ function generatePassword() {
   const shuffled = mergedArraystep4.sort(function() {return 0.5 - Math.random(); });
   var selected = shuffled.slice(0,n);
   var result = selected.join("");
-  return result;
+
+  if (n > result.length) {
+    // repeat array until n < length
+    //return result;
+  } else {
+    return result;
+  };
 }
 
 // Get references to the #generate element
