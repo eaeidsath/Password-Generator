@@ -74,9 +74,13 @@ function generatePassword() {
   var selected = shuffled.slice(0,n);
   var result = selected.join("");
 
-  if (n > result.length) {
+  if (n > mergedArraystep4.length) {
     // repeat array until n < length
-    //return result;
+    while (n > mergedArraystep4.length) {
+      mergedArraystep4 = mergedArraystep4.concat(mergedArraystep4);
+    } if ((n === mergedArraystep4.length) || (n < mergedArraystep4.length)) {
+      return result;
+    }
   } else {
     return result;
   };
