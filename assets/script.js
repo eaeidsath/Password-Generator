@@ -17,6 +17,11 @@ function generatePassword() {
     var userUpperCase = window.confirm("Include upper case letters?");
     var userNumbers = window.confirm("Include numbers?");
     var userSpecialCharacters = window.confirm("Include special characters?");
+  } 
+  if ((userLowerCase === false) && (userUpperCase === false) && (userNumbers === false) && (userSpecialCharacters === false)) {
+    window.alert("Please select at least one character type.");
+    var startOver2 = window.confirm("Start over?");;
+    if (startOver2) {generatePassword();};
   }
   //function getRandomPassword() {
   //  var randomPassword = lowerCase[Math.floor(Math.random()*lowerCase.length)];
